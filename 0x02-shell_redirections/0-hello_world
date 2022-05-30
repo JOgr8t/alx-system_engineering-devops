@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'hello world sript' >> README.md
+echo "hello world"
