@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
-# Installing a web server Nginx
-sudo apt-get update
-sudo apt-get -y install nginx
-sudo service nginx start
-echo "Hello World" | sudo tee /usr/share/nginx/html/index.html
-echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
-sudo service nginx restart
-sudo service nginx reload
+#
+# Install NGINX on my server
+
+apt-get -y update
+apt-get -y install nginx
+
+cat > /var/www/html/index.html << 'EOF' 
+<html>
+  <head>
+    <title>Holberton School</title>
+  </head>
+  <body>
+    <p>Hello World!</p>
+  </body>
+</html>
+EOF
+
+service nginx start
+
+ufw allow 'Nginx HTTP'
